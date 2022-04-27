@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>扣税计算器</title>
+    <title>计算器</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link href="https://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet" />
@@ -38,7 +38,7 @@
             <div class="form-group">
                 <label for="day" class="col-sm-2 control-label">补贴</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="day" value="" placeholder="饭补25*天+电脑50/月" disabled/>
+                    <input type="text" class="form-control" id="day" value="" placeholder="饭补25*天+电脑50/月" disabled />
                 </div>
             </div>
             <div class="form-group">
@@ -52,7 +52,7 @@
             <div class="form-group">
                 <label for="sum" class="col-sm-2 control-label">合计</label>
                 <div class="col-sm-4">
-                    <textarea class="form-control" id="sum" rows="6" disabled ></textarea>
+                    <textarea class="form-control" id="sum" rows="6" disabled></textarea>
                 </div>
             </div>
         </form>
@@ -60,9 +60,9 @@
 </body>
 <script>
     function count() {
-        let salary = $("#salary").val()*1;
-        let base = $("#base").val()*1;
-        let day = $("#day").val()*1;
+        let salary = $("#salary").val() * 1;
+        let base = $("#base").val() * 1;
+        let day = $("#day").val() * 1;
 
         let month = salary + base * day;
         let others = ((15 + 10) * day + 50)
@@ -77,6 +77,9 @@
     }
 
     $(function () {
+        $(document).keyup(function (event) {
+            count();
+        });
         count();
     });
 </script>
