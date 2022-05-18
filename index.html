@@ -32,13 +32,19 @@
             <div class="form-group">
                 <label for="day" class="col-sm-2 control-label">天数</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="day" value="16" />
+                    <input type="text" class="form-control" id="day" value="16.7" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="day" class="col-sm-2 control-label">补贴</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="day" value="" placeholder="饭补25*天+电脑50/月" disabled />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="bouns" class="col-sm-2 control-label">年终+价值奖</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="bouns" value="54000" disabled />
                 </div>
             </div>
             <div class="form-group">
@@ -63,14 +69,17 @@
         let salary = $("#salary").val() * 1;
         let base = $("#base").val() * 1;
         let day = $("#day").val() * 1;
+        let bouns = $("#bouns").val() * 1;
 
         let month = salary + base * day;
         let others = ((15 + 10) * day + 50)
-        let year = (month + others) * 12 + 36000 + 18000;
+        let onlySalary = month  * 12 + bouns;
+        let year = (month + others) * 12 + bouns;
         let sum = `
             月收入：${month}
             月补贴：${others}
             月合计：${month + others}
+            年(无补贴)：${onlySalary}
             年合计：${year}
         `
         $("#sum").val(sum);
