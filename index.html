@@ -73,13 +73,11 @@
 
         let month = salary + base * day;
         let others = ((15 + 10) * day + 50)
-        let onlySalary = month  * 12 + bouns;
         let year = (month + others) * 12 + bouns;
         let sum = `
             月收入：${month}
             月补贴：${others}
             月合计：${month + others}
-            年(无补贴)：${onlySalary}
             年合计：${year}
         `
         $("#sum").val(sum);
